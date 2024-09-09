@@ -1,0 +1,1 @@
+Abuses the prtscrn websites easy to replicate urls to crawl through them all and download the images.
