@@ -36,7 +36,7 @@ public class GrabberPrnt extends Downloader {
     }
 
     public GrabberPrnt(Path outputPath, String currentUrl) {
-        this(outputPath, currentUrl, 50);
+        this(outputPath, currentUrl, 20);
     }
 
     public Thread start(boolean extraInfo) {
@@ -92,7 +92,7 @@ public class GrabberPrnt extends Downloader {
             Element imgElement = doc.select("img.no-click.screenshot-image").first();
 
             if (imgElement != null) {
-                return downloadFile(imgElement.attr("abs:src"), new File(outputPath + currentUrl + ".png"), extraInfo);
+                return downloadFile(imgElement.attr("abs:src"),outputPath.resolve(currentUrl + ".png").toFile(), extraInfo);
             }
 
             return new DownloadResult(null, null, Status.ERROR, "No image element found");
